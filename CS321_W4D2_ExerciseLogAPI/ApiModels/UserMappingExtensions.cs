@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CS321_W4D2_ExerciseLogAPI.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,9 +13,12 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
             return new UserModel
             {
                 Id = User.Id,
-                // TODO: fill in property mappings
+                Name = User.Name,
+               // Activities = User.Activities.ToApiModels(),
+                //  fill in property mappings
 
-            };
+
+    };
         }
 
         public static User ToDomainModel(this UserModel UserModel)
@@ -22,7 +26,10 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
             return new User
             {
                 Id = UserModel.Id,
-                // TODO: fill in property mappings
+                Name = UserModel.Name,
+                //Activities = UserModel.Activities.ToDomainModels(),
+
+                //fill in property mappings
             };
         }
 

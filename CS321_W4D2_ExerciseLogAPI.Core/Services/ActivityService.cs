@@ -25,11 +25,15 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
             {
                 throw new ApplicationException("You must supply a Distance for this activity.");
             }
+            if(Activity.Duration <=0)
+            {
+                throw new ApplicationException("you must supply a duration for this activity");
+            }
             _activityRepo.Add(Activity);
             return Activity;
         }
 
-        public Activity Get(int id)
+public Activity Get(int id)
         {
             // TODO: return the specified Activity using Find()
             return _activityRepo.Get(id);

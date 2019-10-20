@@ -9,7 +9,7 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
     public class AppDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Activity> Activity { get; set; }
         public DbSet <ActivityType> ActivityTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

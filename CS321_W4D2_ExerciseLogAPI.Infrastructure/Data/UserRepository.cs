@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq; //added
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 {
@@ -25,7 +27,12 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
         }
         public User Get(int id)
         {
-            return _dbContext.Users.FirstOrDefault(u => u.Id == id);
+            return _dbContext.Users.Include(u => u.Activities)
+                .SingleOrDefault(u => u.Id == id);
+
+
+            //  return _dbContext.Users.FirstOrDefault(u => u.Id == id)
+            //  .Include(u => u.Activities);
         }
         public User Update(User updatedUser)
         {
@@ -38,7 +45,8 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
         }
         public IEnumerable<User> GetAll()
         {
-            return _dbContext.Users.ToList();
+            return _dbContext.Users
+                .Include(u => u.Activities).ToList();
         }
         public void Remove(User user)
         {

@@ -12,7 +12,8 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
 
         [Required]
         public int ActivityTypeId { get; set; }
-        // TODO: Make ActivityType a string property that will contain the name of the activity type (update the mapping code)
+        //  Make ActivityType a string property that will contain the name of the activity type (update the
+        //mapping code)
         public string ActivityType { get; set; }
 
         [Required]
@@ -21,7 +22,7 @@ namespace CS321_W4D2_ExerciseLogAPI.ApiModels
 
         [Required]
         public int UserId { get; set; }
-        // TODO: Make User a string property that will contain the User's name (updating the mapping code)
+        //  Make User a string property that will contain the User's name (updating the mapping code)
         public string User { get; set; }
 
         public string Notes { get; set; }
